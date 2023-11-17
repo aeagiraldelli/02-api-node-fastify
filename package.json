@@ -14,9 +14,11 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.9.0",
+    "@types/supertest": "^2.0.16",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "eslint": "^8.53.0",
+    "supertest": "^6.3.3",
     "tsx": "^4.1.1",
     "typescript": "^5.2.2",
     "vitest": "^0.34.6"
