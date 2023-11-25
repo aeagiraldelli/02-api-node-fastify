@@ -48,5 +48,32 @@ describe('Transaction routes', () => {
       })
     ]);
   });
+
+  it('should be able to get an transaction by id', async () => {
+    const createTransactionResponse = await request(app.server).post('/transactions').send({
+      title: 'New transaction test',
+      amount: 4000,
+      type: 'credit'
+    });
+
+    const cookie = createTransactionResponse.get('Set-Cookie');
+
+    const transactionsReponse = await request(app.server)
+      .get('/transactions')
+      .set('Cookie', cookie);
+
+    const id = transactionsReponse.body.transactions[0].id;
+    const response = await request(app.server)
+      .get(`/transactions/${id}`)
+      .set('Cookie', cookie);
+
+    expect(response.statusCode).toEqual(200);
+    expect(response.body.transaction).toEqual(
+      expect.objectContaining({
+        title: 'New transaction test',
+        amount: 4000,
+      })
+    );
+  });
 });
 
