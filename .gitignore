@@ -1,7 +1,13 @@
-tmp/*
+# Database
 db/*.sqlite
+
+# enviroment
 .env
 .env.test
+
+# dirs
+tmp/*
+dist/
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode
